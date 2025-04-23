@@ -16,3 +16,34 @@ def index1(request):
         'audjourdhui' : timezone.now(),
     }
     return render(request, "boutique/index1.html", context=data)
+def detail(request):
+
+    data = {
+        'audjourdhui' : timezone.now(),
+    }
+    return render(request, "boutique/product_detail.html", context=data)
+def panier(request):
+
+    data = {
+        'audjourdhui' : timezone.now(),
+    }
+    return render(request, "boutique/panier.html", context=data)
+
+def paiement(request):
+    data = {
+        'aujoudhui': timezone.now()
+    }
+    return render(request, "boutique/paiement.html",context=data)
+
+
+def news(request):
+    data = {
+        'aujourdhui': timezone.now()
+    }
+    return render(request, 'boutique/news.html', context=data)
+
+def boutique(request):
+    data = {
+        'aujourdhui': timezone.now()
+    }
+    return render(request, 'boutique/news.html', context=data)
