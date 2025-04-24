@@ -22,9 +22,10 @@ urlpatterns = [
     path('', index1, name = 'index1'),
     path('index/', index, name = 'index'),
     path('detail/', detail, name = 'detail'),
+    path('index2/', index2, name = 'index2'),
     path('panier/', panier, name = 'panier'),
     path('paiement/', paiement, name = 'paiement'),
     path('news/', news, name = 'news'),
-    path('boutique/', boutique, name = "boutique")
-    
+    path('boutique/', boutique, name = "boutique"),
+    path('contact/', contact, name = 'contact')
 ]

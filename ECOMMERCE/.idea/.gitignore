@@ -1,0 +1,40 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Fichiers sensibles
+*.env
+*.secret
+*.key
+.env
+.env.local
+.env.dev
+.env.prod
+secrets.json
+db.sqlite3
+
+# Fichiers de configuration sensible
+/settings/local.py
+
+# Fichiers générés par Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Environnements virtuels
+venv/
+env/
+.venv/
+
+# Fichiers de l'IDE
+.idea/
+.vscode/
+
+# Fichiers de base de données
+*.db
+*.sqlite
+*.sqlite3
+
+# Fichiers CSS/JS compilés
+*.css.map
+*.js.map

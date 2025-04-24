@@ -46,4 +46,14 @@ def boutique(request):
     data = {
         'aujourdhui': timezone.now()
     }
-    return render(request, 'boutique/news.html', context=data)
+    return render(request, 'boutique/boutique.html', context=data)
+def contact(request):
+    data = {
+        'aujourdhui': timezone.now()
+    }
+    return render(request, 'boutique/contact.html', context=data)
+def index2(request):
+    data = {
+        'aujourdhui': timezone.now()
+    }
+    return render(request, 'boutique/index2.html', context=data)
