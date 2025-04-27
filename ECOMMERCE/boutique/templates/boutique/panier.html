@@ -37,6 +37,10 @@
                 </tr>
               </thead>
               <tbody>
+
+
+
+
                 <tr class="cart_single">
                   <td class="product-remove">
                     <a
@@ -66,8 +70,8 @@
                   <td class="product-price" data-title="Price">
                     <span class="woocommerce-Price-amount amount"
                       ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >165.00</span
+                        ></span
+                      >165.00 FCFA</span
                     >
                   </td>
                   <td class="product-quantity" data-title="Quantity">
@@ -77,120 +81,8 @@
                         step="1"
                         min="0"
                         name="cart[c9f0f895fb98ab9159f51fd0297e236d][qty]"
-                        value="2"
-                        title="Qty"
-                        class="product-count input-text qty text product-count form-control"
-                      />
-                    </div>
-                  </td>
-                  <td class="product-subtotal" data-title="Total">
-                    <span class="woocommerce-Price-amount amount"
-                      ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >330.00</span
-                    >
-                  </td>
-                </tr>
-                <tr class="cart_single">
-                  <td class="product-remove">
-                    <a
-                      href="#!"
-                      class="remove"
-                      title="Remove this item"
-                      data-product_id="21"
-                      data-product_sku=""
-                      >&times;</a
-                    >
-                  </td>
-
-                  <td class="product-thumbnail">
-                    <a href="">
-                      <img
-                        width="57"
-                        height="70"
-                        src="{% static 'assets/img/product/img_179.png' %}"
-                        class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                        alt="#!"
-                      />
-                    </a>
-                  </td>
-
-                  <td class="product-name" data-title="Product">
-                    <a href="#!">product2</a>
-                  </td>
-
-                  <td class="product-price" data-title="Price">
-                    <span class="woocommerce-Price-amount amount"
-                      ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >100.00</span
-                    >
-                  </td>
-
-                  <td class="product-quantity" data-title="Quantity">
-                    <div class="quantity">
-                      <input
-                        type="number"
-                        step="1"
-                        min="0"
-                        name="cart[1FjMjtzom8sQqT4RxQCTwt8xSZ8N4UKdE5][qty]"
                         value="1"
                         title="Qty"
-                        class="product-count input-text qty text"
-                      />
-                    </div>
-                  </td>
-
-                  <td class="product-subtotal" data-title="Total">
-                    <span class="woocommerce-Price-amount amount"
-                      ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >100.00</span
-                    >
-                  </td>
-                </tr>
-                <tr class="cart_single">
-                  <td class="product-remove">
-                    <a
-                      href="#!"
-                      class="remove"
-                      title="Remove this item"
-                      data-product_id="8"
-                      data-product_sku="my name is"
-                      >&times;</a
-                    >
-                  </td>
-                  <td class="product-thumbnail">
-                    <a href="#!">
-                      <img
-                        width="57"
-                        height="70"
-                        src="{% static 'assets/img/product/img_180.png' %}"
-                        class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                        alt="#!"
-                      />
-                    </a>
-                  </td>
-                  <td class="product-name" data-title="Product">
-                    <a href="#!">Checked Hoodies Woo</a>
-                  </td>
-
-                  <td class="product-price" data-title="Price">
-                    <span class="woocommerce-Price-amount amount"
-                      ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >165.00</span
-                    >
-                  </td>
-                  <td class="product-quantity" data-title="Quantity">
-                    <div class="quantity">
-                      <input
-                        type="number"
-                        step="1"
-                        min="0"
-                        name="cart[c9f0f895fb98ab9159f51fd0297e236d][qty]"
-                        value="2"
-                        title="Qty"
                         class="product-count input-text qty text product-count form-control"
                       />
                     </div>
@@ -198,8 +90,8 @@
                   <td class="product-subtotal" data-title="Total">
                     <span class="woocommerce-Price-amount amount"
                       ><span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >330.00</span
+                        ></span
+                      >165.00 FCFA</span
                     >
                   </td>
                 </tr>
@@ -262,8 +154,8 @@
                   <td data-title="Subtotal">
                     <span class="woocommerce-Price-amount amount">
                       <span class="woocommerce-Price-currencySymbol"
-                        >&pound;</span
-                      >430.00</span
+                        ></span
+                      >430.00 FCFA</span
                     >
                   </td>
                 </tr>
@@ -288,8 +180,8 @@
                     <strong
                       ><span class="woocommerce-Price-amount amount"
                         ><span class="woocommerce-Price-currencySymbol"
-                          >&pound;</span
-                        >430.00</span
+                          ></span
+                        >430.00 FCFA</span
                       ></strong
                     >
                   </td>
@@ -298,7 +190,7 @@
 
               <div class="wc-proceed-to-checkout">
                 <a
-                  href="#!"
+                  href="{% url 'paiement' %}"
                   class="checkout-button thm-btn thm-btn__2 no-icon br-0 alt wc-forward"
                 >
                   <span class="btn-wrap">

@@ -57,3 +57,8 @@ def index2(request):
         'aujourdhui': timezone.now()
     }
     return render(request, 'boutique/index2.html', context=data)
+def nopage(request):
+    data = {
+        'aujourdhui': timezone.now()
+    }
+    return render(request, 'boutique/404.html', context=data)

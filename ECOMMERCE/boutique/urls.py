@@ -26,6 +26,6 @@ urlpatterns = [
     path('panier/', panier, name = 'panier'),
     path('paiement/', paiement, name = 'paiement'),
     path('news/', news, name = 'news'),
-    path('boutique/', boutique, name = "boutique"),
+    path('nopage/', nopage, name = "boutique"),
     path('contact/', contact, name = 'contact')
 ]
