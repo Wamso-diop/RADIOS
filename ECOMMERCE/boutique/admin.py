@@ -1,3 +1,22 @@
 from django.contrib import admin
+from .models import Produit, ImageProduit
 
-# Register your models here.
+class ImageProduitInline(admin.TabularInline):  # ou admin.StackedInline
+    model = ImageProduit
+    extra = 1  # Nombre de formulaires vides affichés
+
+@admin.register(Produit)
+class ProduitAdmin(admin.ModelAdmin):
+    inlines = [ImageProduitInline]
+    list_display = ('nom', 'prix')
+
+@admin.register(ImageProduit)
+class ImageProduitAdmin(admin.ModelAdmin):
+    list_display = ('produit', 'image_preview')
+    
+    def image_preview(self, obj):
+        from django.utils.html import format_html
+        if obj.image:
+            return format_html('<img src="{}" height="50" />', obj.image.url)
+        return ""
+    image_preview.short_description = 'Aperçu'

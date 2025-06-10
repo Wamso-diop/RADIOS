@@ -1,7 +1,7 @@
 from django.utils import timezone
 
 from django.shortcuts import render
-
+from .models import Produit  # Assurez-vous d'importer le modèle Produit
 
 
 def index(request):
@@ -16,9 +16,19 @@ def index1(request):
         'audjourdhui' : timezone.now(),
     }
     return render(request, "boutique/index1.html", context=data)
-def detail(request):
-
+def detail(request, slug):
+    produit = Produit.objects.get(slug=slug)
     data = {
+        'produit': produit,
+        'images': produit.images.all(),  # Récupère toutes les images associées au produit
+        'audjourdhui' : timezone.now(),
+    }
+    return render(request, "boutique/product_detail.html", context=data)
+def detail(request):
+    produit = Produit.objects.all()
+    data = {
+        'produit': produit,
+        'images': produit.images.all(),  # Récupère toutes les images associées au produit
         'audjourdhui' : timezone.now(),
     }
     return render(request, "boutique/product_detail.html", context=data)
@@ -62,3 +72,10 @@ def nopage(request):
         'aujourdhui': timezone.now()
     }
     return render(request, 'boutique/404.html', context=data)
+
+def genererRecu(request):
+    data={
+        'aujourdhui':timezone.now
+    }
+    return render(request, 'boutique/connexion.html', context=data)
+

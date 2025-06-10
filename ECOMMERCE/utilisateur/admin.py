@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Utilisateur  # Importez votre modèle
+
+# Enregistrement simple
+admin.site.register(Utilisateur)

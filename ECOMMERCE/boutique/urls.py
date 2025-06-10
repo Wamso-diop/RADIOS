@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('', index1, name = 'index1'),
     path('index/', index, name = 'index'),
+    path('detail/<str:slug>', detail, name = 'detail'),
     path('detail/', detail, name = 'detail'),
     path('index2/', index2, name = 'index2'),
     path('panier/', panier, name = 'panier'),

@@ -35,7 +35,7 @@
                 aria-labelledby="home-tab"
               >
                 <div class="pl_thumb">
-                  <img src="{% static 'assets/img/product/img_178.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ product.name }}" width="400" height="400"/>
                 </div>
               </div>
               <div
@@ -135,7 +135,7 @@
 
       <div class="col-md-6 product-details-col">
         <div class="product-details">
-          <h2>Lenovo – Tab P11 Plus – Tablet</h2>
+          <h2>{{ produit.nom }}</h2>
           <div class="rating">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -145,24 +145,21 @@
             <span>(90 Customer review)</span>
           </div>
           <div class="price">
-            <span class="current">$45.00</span>
-            <span class="old">$55.00</span>
+            <span class="current">{{ produit.prix }} FCFA</span>
+            <span class="old">400 000 FCFA</span>
           </div>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod temp <br />
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam,
+            {{produit.description}}
           </p>
 
           <div class="model-option-wrap ul_li mt-25">
-            <span>Model : </span>
+            <span>Color : </span>
             <ul class="model-option ul_li">
-              <li class="active">tyk</li>
-              <li>ffd2</li>
-              <li>23tt</li>
-              <li>r454</li>
-              <li>45hy</li>
+              <li class="active">grey</li>
+              <li>red</li>
+              <li>blue</li>
+              <li>white</li>
+              <li>black</li>
             </ul>
           </div>
 
@@ -468,7 +465,7 @@
             <ul class="products clearfix">
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' %}"><img src="{% static 'assets/img/product/img_165.png' %}" alt/></a>
+                  <a href="{% url 'detail' produit.slug %}"><img src="{% static 'assets/img/product/img_165.png' %}" alt/></a>
                   <ul class="product__action">
                     <li>
                       <a href="#!"><i class="far fa-compress-alt"></i></a>
@@ -493,7 +490,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' %}"
+                    <a href="{% url 'detail' produit.slug %}"
                       >Rokinon Xeen CF 16mm T2.6 Pro Cinema Wide</a
                     >
                   </h2>
@@ -518,7 +515,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' %}"
+                  <a href="{% url 'detail' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_166.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -545,7 +542,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' %}"
+                    <a href="{% url 'detail' produit.slug %}"
                       >Tab M10 Plus, FHD Android Tablet, Processor</a
                     >
                   </h2>
@@ -571,7 +568,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' %}"
+                  <a href="{% url 'detail' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_167.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -598,7 +595,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' %}"
+                    <a href="{% url 'detail' produit.slug %}"
                       >Portable 2TB External Hard Drive Portable HDD USB</a
                     >
                   </h2>
@@ -623,7 +620,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' %}"
+                  <a href="{% url 'detail' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_168.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -650,7 +647,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' %}"
+                    <a href="{% url 'detail' produit.slug %}"
                       >Skullcandy Dime True In-Ear Earbuds – Golden</a
                     >
                   </h2>
