@@ -22,13 +22,13 @@ class Produit(models.Model):
     nom = models.CharField(max_length=255)
     description = models.TextField( verbose_name="Description")
     prix = models.DecimalField(max_digits=10, decimal_places=2)
-    quantite = models.PositiveIntegerField()
     stock = models.PositiveIntegerField(default=1)
     date_ajout = models.DateTimeField(auto_now_add=True)
     est_nouveau = models.BooleanField(default=True, verbose_name="Nouveau")
     image_principale = models.ImageField(upload_to='produits/images/', blank=True, null=True, verbose_name="Image Principale", help_text="Image principale du produit")
     nombre_etoile  = models.IntegerField(default=0, verbose_name="Étoiles", help_text="Note de 0 à 5")
     slug = models.SlugField(max_length=128, unique=True, verbose_name="Slug", help_text="Identifiant unique pour le produit")
+    categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE, verbose_name="Catégorie", related_name='produits', help_text="Catégorie du produit")
     def __str__(self):
         return f"{self.nom} ({self.prix})"
     class Meta:

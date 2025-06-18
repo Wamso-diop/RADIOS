@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Produit, ImageProduit
+from .models import *
 
 class ImageProduitInline(admin.TabularInline):  # ou admin.StackedInline
     model = ImageProduit
@@ -17,6 +17,17 @@ class ImageProduitAdmin(admin.ModelAdmin):
     def image_preview(self, obj):
         from django.utils.html import format_html
         if obj.image:
-            return format_html('<img src="{}" height="50" />', obj.image.url)
+            return format_html('<img src="{}"/>', obj.image.url)
         return ""
     image_preview.short_description = 'Aperçu'
+
+@admin.register(Categorie)
+class CategorieAdmin(admin.ModelAdmin):
+    list_display = ('nom','description')
+
+@admin.register(Commande)
+class CommandeAdmin(admin.ModelAdmin):
+    list_display = ("utilisateur","produit","adresse_livraison","statut","mode_paiement","quantite","date_commande","date_livraison","date_modification")
+@admin.register(Panier)
+class PanierAdmin(admin.ModelAdmin):
+    list_display = ("utilisateur","produit","quantite")

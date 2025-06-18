@@ -28,5 +28,6 @@ urlpatterns = [
     path('paiement/', paiement, name = 'paiement'),
     path('news/', news, name = 'news'),
     path('nopage/', nopage, name = "boutique"),
-    path('contact/', contact, name = 'contact')
+    path('contact/', contact, name = 'contact'),
+    path("produit/<str:slug>/ajouteraupanier", ajouterAuPanier, name= "ajouteraupanier")
 ]

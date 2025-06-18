@@ -1,8 +1,20 @@
 from django.utils import timezone
 
-from django.shortcuts import render
-from .models import Produit  # Assurez-vous d'importer le modèle Produit
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import *  # Assurez-vous d'importer le modèle Produit
 
+def ajouterAuPanier(request, slug):
+    user  = request.user
+    produit = get_object_or_404(Produit, slug=slug)
+    panier,_ = Panier.objects.get_or_create(user=user)
+    commande, estCreer = Commande.objects.get_or_create(user=user, produit=produit)
+    if estCreer:
+        panier.objects.add()
+        panier.save()
+    else:
+        commande.quantite += 1
+        commande.save
+    return redirect(reverse("detail", kwargs={"slug":slug}))
 
 def index(request):
 
