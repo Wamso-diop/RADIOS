@@ -16,11 +16,11 @@
           >
             <div class="featured__content">
               <span>Widesceen 4k .......</span>
-              <h2>
-                Digital Slr Camera <br />
-                High Defination
+              <h2 style="font-size:35px">
+                {{ produit.nom|slice:":11" }} <br />
+                {{ produit.nom|slice:"-20:" }}
               </h2>
-              <p>Sumptuous, filling, and temptingly</p>
+              <p>Sumptuous, ultra-detailed, and temptingly immersive</p>
               <div class="ul_li mt-20">
                 <div class="upto-offer ul_li">
                   <span class="upto"
@@ -29,10 +29,10 @@
                   >
                   <span class="offer-no">70 <span>%</span></span>
                 </div>
-                <h4 class="price">$ 180.99</h4>
+                <h4 class="price">{{ produit.prix }} FCFA</h4>
               </div>
               <div class="banner__btn mt-30">
-                <a class="thm-btn thm-btn__black" href="shop.html">
+                <a class="thm-btn thm-btn__black" href="{% url 'detail_slug' produit.slug %}">
                   <span class="btn-wrap">
                     <span>Shop Now</span>
                     <span>Shop Now</span>
@@ -42,7 +42,7 @@
               </div>
             </div>
             <div class="featured__img">
-              <img src="{% static 'assets/img/product/img_56.png' %} " alt="" />
+              <img src="{{ produit.image_principale.url }}" alt="{{ produit.nom }}" />
             </div>
             <div class="featured__shape">
               <img src="{% static 'assets/img/icon/h_01.png' %}" alt="" />

@@ -45,7 +45,7 @@
                 aria-labelledby="profile-tab"
               >
                 <div class="pl_thumb">
-                  <img src="{% static 'assets/img/product/img_179.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ product.name }}" width="400" height="400"/>
                 </div>
               </div>
               <div
@@ -55,7 +55,7 @@
                 aria-labelledby="contact-tab"
               >
                 <div class="pl_thumb">
-                  <img src="{% static 'assets/img/product/img_180.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ product.name }}" width="400" height="400"/>
                 </div>
               </div>
               <div
@@ -65,7 +65,7 @@
                 aria-labelledby="profile-tab3"
               >
                 <div class="pl_thumb">
-                  <img src="{% static 'assets/img/product/img_181.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ product.name }}" width="400" height="400"/>
                 </div>
               </div>
             </div>
@@ -83,7 +83,7 @@
                   aria-controls="home"
                   aria-selected="true"
                 >
-                  <img src="{% static 'assets/img/product/img_178.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ produit.nom }}" width="400" height="400"/>
                 </button>
               </li>
               <li class="nav-item">
@@ -97,7 +97,7 @@
                   aria-controls="profile"
                   aria-selected="false"
                 >
-                  <img src="{% static 'assets/img/product/img_179.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ produit.nom }}" width="400" height="400"/>
                 </button>
               </li>
               <li class="nav-item">
@@ -111,7 +111,7 @@
                   aria-controls="contact"
                   aria-selected="false"
                 >
-                  <img src="{% static 'assets/img/product/img_180.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ produit.nom }}" width="400" height="400"/>
                 </button>
               </li>
               <li class="nav-item">
@@ -125,7 +125,7 @@
                   aria-controls="profile2"
                   aria-selected="false"
                 >
-                  <img src="{% static 'assets/img/product/img_181.png' %}" alt="" />
+                  <img src="{{ produit.image_principale.url }}" alt="{{ produit.nom }}" width="400" height="400"/>
                 </button>
               </li>
             </ul>
@@ -149,7 +149,7 @@
             <span class="old">400 000 FCFA</span>
           </div>
           <p>
-            {{produit.description}}
+            {{ produit.description|truncatewords:80 }}
           </p>
 
           <div class="model-option-wrap ul_li mt-25">
@@ -185,7 +185,8 @@
           </div>
 
           <div class="product-option">
-            <form class="form">
+            <form class="form" action="{% url 'ajouteraupanier' produit.slug %}" method="post">
+              {% csrf_token %}
               <div class="product-row">
                 <div>
                   <input
@@ -193,6 +194,7 @@
                     type="text"
                     value="1"
                     name="product-count"
+                    id = "product-count"
                   />
                 </div>
                 <div class="add-to-cart-btn">
@@ -465,7 +467,7 @@
             <ul class="products clearfix">
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' produit.slug %}"><img src="{% static 'assets/img/product/img_165.png' %}" alt/></a>
+                  <a href="{% url 'detail_slug' produit.slug %}"><img src="{% static 'assets/img/product/img_165.png' %}" alt/></a>
                   <ul class="product__action">
                     <li>
                       <a href="#!"><i class="far fa-compress-alt"></i></a>
@@ -490,7 +492,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' produit.slug %}"
+                    <a href="{% url 'detail_slug' produit.slug %}"
                       >Rokinon Xeen CF 16mm T2.6 Pro Cinema Wide</a
                     >
                   </h2>
@@ -515,7 +517,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' produit.slug %}"
+                  <a href="{% url 'detail_slug' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_166.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -542,7 +544,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' produit.slug %}"
+                    <a href="{% url 'detail_slug' produit.slug %}"
                       >Tab M10 Plus, FHD Android Tablet, Processor</a
                     >
                   </h2>
@@ -568,7 +570,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' produit.slug %}"
+                  <a href="{% url 'detail_slug' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_167.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -595,7 +597,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' produit.slug %}"
+                    <a href="{% url 'detail_slug' produit.slug %}"
                       >Portable 2TB External Hard Drive Portable HDD USB</a
                     >
                   </h2>
@@ -620,7 +622,7 @@
               </li>
               <li class="product">
                 <div class="product-holder">
-                  <a href="{% url 'detail' produit.slug %}"
+                  <a href="{% url 'detail_slug' produit.slug %}"
                     ><img src="{% static 'assets/img/product/img_168.png' %}" alt
                   /></a>
                   <ul class="product__action">
@@ -647,7 +649,7 @@
                     <span>(126) Review</span>
                   </div>
                   <h2 class="product__title">
-                    <a href="{% url 'detail' produit.slug %}"
+                    <a href="{% url 'detail_slug' produit.slug %}"
                       >Skullcandy Dime True In-Ear Earbuds – Golden</a
                     >
                   </h2>

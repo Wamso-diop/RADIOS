@@ -50,15 +50,15 @@ class Panier(models.Model):
     Modèle Panier
     """
     utilisateur = models.ForeignKey('utilisateur.Utilisateur', on_delete=models.CASCADE)
-    produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
-    quantite = models.PositiveIntegerField(default=1)
-    
+    est_commande = models.BooleanField(default=False, verbose_name="Commandé", help_text="Indique si le panier a été commandé")
+    commandes = models.ManyToManyField('Commande', blank=True, related_name='paniers', verbose_name="Commandes", help_text="Commandes associées à ce panier")
+    date_commande = models.DateTimeField(auto_now_add=True,blank=True, null=True, verbose_name="Date de commande", help_text="Date à laquelle le panier a été commandé")
     def __str__(self):
-        return f"Panier de {self.utilisateur.username} - {self.produit.nom}"
+        return f"Panier de {self.utilisateur.username}"
     class Meta:
         verbose_name = "Panier"
         verbose_name_plural = "Paniers"
-        ordering = ['utilisateur', 'produit']
+        ordering = ['utilisateur', 'date_commande']
 class Commande(models.Model):
     """
     Modèle Commande
@@ -69,7 +69,6 @@ class Commande(models.Model):
     statut = models.CharField(max_length=50, choices=[('en_attente', 'En attente'), ('envoyé', 'Envoyé'), ('livré', 'Livré')], default='en_attente')
     mode_paiement = models.CharField(max_length=50, choices=[('carte', 'Carte'), ('paypal', 'PayPal'), ('mobile', 'Mobile')], default='mobile')
     quantite = models.PositiveIntegerField(default=1)
-    date_commande = models.DateTimeField(auto_now_add=True)
     date_livraison = models.DateTimeField(blank=True, null=True)
     date_modification = models.DateTimeField(auto_now=True)
     class Meta:

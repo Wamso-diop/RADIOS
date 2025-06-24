@@ -27,7 +27,7 @@ class CategorieAdmin(admin.ModelAdmin):
 
 @admin.register(Commande)
 class CommandeAdmin(admin.ModelAdmin):
-    list_display = ("utilisateur","produit","adresse_livraison","statut","mode_paiement","quantite","date_commande","date_livraison","date_modification")
+    list_display = ("utilisateur","produit","statut","mode_paiement","quantite","date_livraison","date_modification")
 @admin.register(Panier)
 class PanierAdmin(admin.ModelAdmin):
-    list_display = ("utilisateur","produit","quantite")
+    list_display = ("utilisateur","date_commande", "est_commande")
